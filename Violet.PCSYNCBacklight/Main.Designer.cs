@@ -114,7 +114,7 @@
             // 
             this.btn_TurnOff.BackColor = System.Drawing.Color.White;
             this.btn_TurnOff.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_TurnOff.Location = new System.Drawing.Point(18, 102);
+            this.btn_TurnOff.Location = new System.Drawing.Point(30, 232);
             this.btn_TurnOff.Name = "btn_TurnOff";
             this.btn_TurnOff.Size = new System.Drawing.Size(75, 45);
             this.btn_TurnOff.TabIndex = 0;
@@ -126,7 +126,7 @@
             // 
             this.btn_TurnOn.BackColor = System.Drawing.Color.White;
             this.btn_TurnOn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_TurnOn.Location = new System.Drawing.Point(18, 37);
+            this.btn_TurnOn.Location = new System.Drawing.Point(30, 165);
             this.btn_TurnOn.Name = "btn_TurnOn";
             this.btn_TurnOn.Size = new System.Drawing.Size(75, 45);
             this.btn_TurnOn.TabIndex = 6;
@@ -139,7 +139,7 @@
             this.btn_Red.BackColor = System.Drawing.Color.Red;
             this.btn_Red.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Red.ForeColor = System.Drawing.Color.White;
-            this.btn_Red.Location = new System.Drawing.Point(156, 35);
+            this.btn_Red.Location = new System.Drawing.Point(21, 35);
             this.btn_Red.Name = "btn_Red";
             this.btn_Red.Size = new System.Drawing.Size(75, 45);
             this.btn_Red.TabIndex = 7;
@@ -151,7 +151,7 @@
             // 
             this.btn_Green.BackColor = System.Drawing.Color.Lime;
             this.btn_Green.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Green.Location = new System.Drawing.Point(256, 35);
+            this.btn_Green.Location = new System.Drawing.Point(121, 35);
             this.btn_Green.Name = "btn_Green";
             this.btn_Green.Size = new System.Drawing.Size(75, 45);
             this.btn_Green.TabIndex = 8;
@@ -164,7 +164,7 @@
             this.btn_Blue.BackColor = System.Drawing.Color.Blue;
             this.btn_Blue.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Blue.ForeColor = System.Drawing.Color.White;
-            this.btn_Blue.Location = new System.Drawing.Point(356, 35);
+            this.btn_Blue.Location = new System.Drawing.Point(221, 35);
             this.btn_Blue.Name = "btn_Blue";
             this.btn_Blue.Size = new System.Drawing.Size(75, 45);
             this.btn_Blue.TabIndex = 9;
@@ -176,7 +176,7 @@
             // 
             this.btn_Yellow.BackColor = System.Drawing.Color.Yellow;
             this.btn_Yellow.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Yellow.Location = new System.Drawing.Point(155, 102);
+            this.btn_Yellow.Location = new System.Drawing.Point(20, 102);
             this.btn_Yellow.Name = "btn_Yellow";
             this.btn_Yellow.Size = new System.Drawing.Size(75, 45);
             this.btn_Yellow.TabIndex = 10;
@@ -188,7 +188,7 @@
             // 
             this.btn_Magenta.BackColor = System.Drawing.Color.Magenta;
             this.btn_Magenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Magenta.Location = new System.Drawing.Point(255, 102);
+            this.btn_Magenta.Location = new System.Drawing.Point(120, 102);
             this.btn_Magenta.Name = "btn_Magenta";
             this.btn_Magenta.Size = new System.Drawing.Size(75, 45);
             this.btn_Magenta.TabIndex = 11;
@@ -200,7 +200,7 @@
             // 
             this.btn_Cyan.BackColor = System.Drawing.Color.Cyan;
             this.btn_Cyan.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Cyan.Location = new System.Drawing.Point(356, 102);
+            this.btn_Cyan.Location = new System.Drawing.Point(221, 102);
             this.btn_Cyan.Name = "btn_Cyan";
             this.btn_Cyan.Size = new System.Drawing.Size(75, 45);
             this.btn_Cyan.TabIndex = 12;
@@ -212,7 +212,7 @@
             // 
             this.btn_White.BackColor = System.Drawing.Color.White;
             this.btn_White.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_White.Location = new System.Drawing.Point(256, 166);
+            this.btn_White.Location = new System.Drawing.Point(121, 166);
             this.btn_White.Name = "btn_White";
             this.btn_White.Size = new System.Drawing.Size(75, 45);
             this.btn_White.TabIndex = 13;
@@ -230,17 +230,15 @@
             this.pnlActions.Controls.Add(this.btn_Blue);
             this.pnlActions.Controls.Add(this.btn_Green);
             this.pnlActions.Controls.Add(this.btn_Red);
-            this.pnlActions.Controls.Add(this.btn_TurnOn);
-            this.pnlActions.Controls.Add(this.btn_TurnOff);
-            this.pnlActions.Location = new System.Drawing.Point(12, 130);
+            this.pnlActions.Location = new System.Drawing.Point(154, 130);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(462, 247);
+            this.pnlActions.Size = new System.Drawing.Size(316, 247);
             this.pnlActions.TabIndex = 4;
             // 
             // btn_ColorPicker
             // 
             this.btn_ColorPicker.Image = ((System.Drawing.Image)(resources.GetObject("btn_ColorPicker.Image")));
-            this.btn_ColorPicker.Location = new System.Drawing.Point(356, 166);
+            this.btn_ColorPicker.Location = new System.Drawing.Point(221, 166);
             this.btn_ColorPicker.Name = "btn_ColorPicker";
             this.btn_ColorPicker.Size = new System.Drawing.Size(75, 45);
             this.btn_ColorPicker.TabIndex = 14;
@@ -288,6 +286,8 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pnlActions);
             this.Controls.Add(this.grpScreenSize);
+            this.Controls.Add(this.btn_TurnOn);
+            this.Controls.Add(this.btn_TurnOff);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Violet PCS Backlight";
