@@ -1,10 +1,10 @@
 # Violet PCS Backlight
 Replacement for the original **PC Sync Backlight** software from China
 
-Turn on and off buttons
-Solid Color 
-Color Picker
-Tray Icon with context menu
+- Turn on and off buttons
+- Solid Color 
+- Color Picker
+- Tray Icon with context menu
 
 
 No FX lights or dynamic backlighting for now, but it is safer than the original
