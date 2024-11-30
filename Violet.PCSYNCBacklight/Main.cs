@@ -9,16 +9,77 @@ namespace Violet.PCSYNCBacklight
     public partial class Main : Form
     {
         private SerialPort _serialPort; // Class-level field for SerialPort
+        private NotifyIcon _notifyIcon;
+        private ContextMenuStrip _trayMenu;
 
         public Main()
         {
             InitializeComponent();
             this.FormClosing += Main_FormClosing;
+            SetNotifyIcon();
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
             FillPorts();
+        }
+
+        private void SetNotifyIcon()
+        {
+            _notifyIcon = new NotifyIcon
+            {
+                Icon = SystemIcons.Application, // Use a default application icon
+                Visible = true,
+                Text = "Violet PCS Backlight" // Tooltip text
+            };
+
+            // Create the Context Menu
+            _trayMenu = new ContextMenuStrip();
+            _trayMenu.Items.Add("Open", null, ShowApp); // Open
+            _trayMenu.Items.Add(new ToolStripSeparator()); // Splitter
+            _trayMenu.Items.Add("Turn On", null, (s, e) => TurnOn(_serialPort)); // Turn On
+            _trayMenu.Items.Add("Turn Off", null, (s, e) => TurnOff(_serialPort)); // Turn Off
+            _trayMenu.Items.Add(new ToolStripSeparator()); // Splitter
+            _trayMenu.Items.Add("Red", null, (s, e) => SetColor("red", _serialPort)); // Red
+            _trayMenu.Items.Add("Green", null, (s, e) => SetColor("green", _serialPort)); // Green
+            _trayMenu.Items.Add("Blue", null, (s, e) => SetColor("blue", _serialPort)); // Blue
+            _trayMenu.Items.Add("Yellow", null, (s, e) => SetColor("yellow", _serialPort)); // Yellow
+            _trayMenu.Items.Add("Magenta", null, (s, e) => SetColor("magenta", _serialPort)); // Magenta
+            _trayMenu.Items.Add("Cyan", null, (s, e) => SetColor("cyan", _serialPort)); // Cyan
+            _trayMenu.Items.Add("White", null, (s, e) => SetColor("white", _serialPort)); // White
+            _trayMenu.Items.Add(new ToolStripSeparator()); // Splitter
+            _trayMenu.Items.Add("Exit (Close Tray)", null, ExitApp); // Exit
+
+            // Assign the context menu to the NotifyIcon
+            _notifyIcon.ContextMenuStrip = _trayMenu;
+
+            // Add double-click event to restore the app
+            _notifyIcon.DoubleClick += ShowApp;
+
+            // Subscribe to the form's resize event
+            this.Resize += Main_Resize;
+        }
+
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide(); // Hide the form from the taskbar
+                _notifyIcon.Visible = true; // Show the tray icon
+            }
+        }
+
+        private void ShowApp(object sender, EventArgs e)
+        {
+            this.Show(); // Show the form
+            this.WindowState = FormWindowState.Normal; // Restore if minimized
+            _notifyIcon.Visible = true; // Ensure the tray icon remains visible
+        }
+
+        private void ExitApp(object sender, EventArgs e)
+        {
+            _notifyIcon.Visible = false; // Hide the tray icon
+            this.Close(); // Close the form
         }
 
         private void FillPorts()
@@ -40,7 +101,7 @@ namespace Violet.PCSYNCBacklight
             }
         }
 
-        private void OpenCommunication()
+        private SerialPort OpenCommunication()
         {
             if (ddlPort.SelectedItem != null)
             {
@@ -67,7 +128,9 @@ namespace Violet.PCSYNCBacklight
                 catch (Exception)
                 {
                 }
+                return _serialPort;
             }
+            return null;
         }
 
         private static void SendCommand(SerialPort port, byte[] command, string action)
@@ -182,8 +245,14 @@ namespace Violet.PCSYNCBacklight
             }
         }
 
-        public static void SetColor(string color, SerialPort port)
+        public void SetColor(string color, SerialPort port)
         {
+            if (port == null || !port.IsOpen)
+            {
+                port = OpenCommunication();
+                TurnOn(port);
+            }
+
             byte[] command;
 
             switch (color.ToLower())

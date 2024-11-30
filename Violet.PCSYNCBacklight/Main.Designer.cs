@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.rd27inches = new System.Windows.Forms.RadioButton();
             this.grpScreenSize = new System.Windows.Forms.GroupBox();
@@ -48,6 +49,8 @@
             this.grpPort = new System.Windows.Forms.GroupBox();
             this.ddlPort = new System.Windows.Forms.ComboBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.grpScreenSize.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.pnlActions.SuspendLayout();
@@ -237,9 +240,9 @@
             // btn_ColorPicker
             // 
             this.btn_ColorPicker.Image = ((System.Drawing.Image)(resources.GetObject("btn_ColorPicker.Image")));
-            this.btn_ColorPicker.Location = new System.Drawing.Point(371, 166);
+            this.btn_ColorPicker.Location = new System.Drawing.Point(356, 166);
             this.btn_ColorPicker.Name = "btn_ColorPicker";
-            this.btn_ColorPicker.Size = new System.Drawing.Size(47, 45);
+            this.btn_ColorPicker.Size = new System.Drawing.Size(75, 45);
             this.btn_ColorPicker.TabIndex = 14;
             this.btn_ColorPicker.UseVisualStyleBackColor = true;
             this.btn_ColorPicker.Click += new System.EventHandler(this.btn_ColorPicker_Click);
@@ -263,6 +266,19 @@
             this.ddlPort.Size = new System.Drawing.Size(157, 21);
             this.ddlPort.TabIndex = 0;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.BalloonTipText = "Running in background";
+            this.notifyIcon1.BalloonTipTitle = "Violet RGB";
+            this.notifyIcon1.Text = "Violet RGB";
+            this.notifyIcon1.Visible = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,7 +290,7 @@
             this.Controls.Add(this.grpScreenSize);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
+            this.Text = "Violet PCS Backlight";
             this.Load += new System.EventHandler(this.Main_Load);
             this.grpScreenSize.ResumeLayout(false);
             this.grpScreenSize.PerformLayout();
@@ -309,5 +325,7 @@
         private System.Windows.Forms.ComboBox ddlPort;
         private System.Windows.Forms.Button btn_ColorPicker;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
