@@ -23,4 +23,3 @@ Feel free to modify
 
 ## Supported devices:
 - PC Sync Backlight (DxLight/Dx-Light)
-
